@@ -222,5 +222,6 @@ public class PhotoGalleryFragment extends Fragment {
         if(isAdded()) {
             mPhotoRecyclerView.setAdapter(new PhotoAdapter(mItems));
         }
+
     }
 }

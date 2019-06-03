@@ -15,4 +15,6 @@ public class PhotoGalleryActivity extends SingleFragmentActivity {
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
+
 }
