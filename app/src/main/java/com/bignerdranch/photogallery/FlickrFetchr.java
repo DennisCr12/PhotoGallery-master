@@ -119,4 +119,5 @@ public class FlickrFetchr {
             items.add(item);
         }
     }
+    // algo paso
 }
