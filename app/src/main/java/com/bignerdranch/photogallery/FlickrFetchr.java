@@ -101,6 +101,7 @@ public class FlickrFetchr {
         return downloadGalleryItems(url);
     }
 
+
     private void parseItems(List<GalleryItem> items, JSONObject jsonBody) throws JSONException {
         JSONObject photosJsonObject = jsonBody.getJSONObject("photos");
         JSONArray photosJsonArray = photosJsonObject.getJSONArray("photo");
@@ -111,6 +112,7 @@ public class FlickrFetchr {
             GalleryItem item = new GalleryItem();
             item.setmId(photoJsonObject.getString("id"));
             item.setmCaption(photoJsonObject.getString("title"));
+
 
             if(!photoJsonObject.has("url_s")) {
                 continue;

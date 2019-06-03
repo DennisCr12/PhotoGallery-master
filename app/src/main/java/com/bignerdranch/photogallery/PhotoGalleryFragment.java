@@ -1,5 +1,4 @@
 package com.bignerdranch.photogallery;
-
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -22,12 +21,12 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
-
 import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class PhotoGalleryFragment extends Fragment {
 
@@ -43,6 +42,7 @@ public class PhotoGalleryFragment extends Fragment {
         setHasOptionsMenu(true);
 
         updateItems();
+
         Handler responseHandler = new Handler();
         mThumbnailDownloader = new ThumbnailDownloader<>(responseHandler);
         mThumbnailDownloader.setThumbnailDownloadListener(
@@ -60,6 +60,7 @@ public class PhotoGalleryFragment extends Fragment {
         Log.i(TAG, "Background thread started");
     }
 
+
     private class PhotoHolder extends  RecyclerView.ViewHolder {
 
         private ImageView mItemImageView;
@@ -74,6 +75,7 @@ public class PhotoGalleryFragment extends Fragment {
             mItemImageView.setImageDrawable(drawable);
         }
     }
+
 
     private class PhotoAdapter extends RecyclerView.Adapter<PhotoHolder> {
         private List<GalleryItem> mGalleryItems;
@@ -122,6 +124,8 @@ public class PhotoGalleryFragment extends Fragment {
 
         @Override
         protected List<GalleryItem> doInBackground(Void... params) {
+
+
 
             if (mQuery == null){
                 return new FlickrFetchr().fetchRecentPhotos();
@@ -177,7 +181,7 @@ public class PhotoGalleryFragment extends Fragment {
         final SearchView searchView = (SearchView) searchItem.getActionView();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
+            @Override // se crea en página 530
             public boolean onQueryTextSubmit(String s) {
                 Log.d(TAG, "QueryTextSubmit: " + s);
                 QueryPreferences.setStoredQuery(getActivity(), s);
